@@ -1,4 +1,15 @@
 package ru.tahautdinov.task8;
 
-public class Final1 {
+public final class Final1 { //ненаследуемый класс
+    public static final int NOMBER = 142857;
+    public static void main(String[] args) {
+        int nomber = NOMBER * 2;
+        System.out.println(nom());
+        System.out.println(nomber);
+
+    }
+    public static final int nom(){
+        System.out.println(NOMBER * 3);
+        return NOMBER;
+    }
 }
