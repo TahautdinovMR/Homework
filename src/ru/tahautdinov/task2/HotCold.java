@@ -7,6 +7,7 @@ public class HotCold {
     public static void main(String[] args) {
 
         Random rand = new Random();
+
         int a = rand.nextInt(100);
         //System.out.println(a);
 
