@@ -9,27 +9,29 @@ public class Calculator {
         Scanner scan = new Scanner(System.in);
         firstNomb = scan.nextDouble();
         secondNomb = scan.nextDouble();
-        sum();
-        razn();
-        umn();
-        delen();
-        proc();
+        System.out.println(sum(firstNomb, secondNomb));
+        System.out.println(razn(firstNomb, secondNomb));
+        System.out.println(umn(firstNomb, secondNomb));
+        System.out.println(delen(firstNomb, secondNomb));
+        System.out.println(proc(firstNomb, secondNomb));
     }
 
-    public static void sum(){
-        System.out.println(firstNomb + secondNomb);
+    public static double sum(double a, double b){
+        return a + b;
     }
-    public static void razn(){
-        System.out.println(firstNomb - secondNomb);
+    public static double razn(double a, double b){
+        return a - b;
     }
-    public static void umn(){
-        System.out.println(firstNomb * secondNomb);
+    public static double umn(double a, double b){
+        return a * b;
     }
-    public static void delen(){
-        System.out.println(firstNomb / secondNomb);
+    public static double delen(double a, double b){
+        return a / b;
     }
-    public static void proc(){
-        System.out.println(firstNomb / secondNomb * 100);
+    public static double proc(double a, double b){
+        return a / b * 100;
     }
+
+
 
 }

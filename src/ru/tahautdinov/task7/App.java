@@ -10,28 +10,43 @@ public class App {
         menu[2] = new VendingMachine(Drink.COFFEE, 40);
         menu[3] = new VendingMachine(Drink.JUICE, 45);
 
-        System.out.println("Выберите напиток");
         for (int i = 0; i <= 3; i++) {
-            System.out.println(menu[i] + "   Нажмите кнопку   " + (i+1));
+            System.out.println(menu[i] + "   Нажмите кнопку   " + (i + 1));
         }
 
-        Scanner scan = new Scanner(System.in);
-        int button = scan.nextInt();
-
         System.out.println("Внесите оплату");
+        Scanner scan = new Scanner(System.in);
 
         int pay = scan.nextInt();
         int sum = pay;
-            while (sum < menu[button - 1].price) {
-                pay = scan.nextInt();
-                sum = sum + pay;
-            }
-            System.out.println("Ваш напиток готов");
-            if (sum > menu[button - 1].price)
-                System.out.println("Сдача составляет   " + (sum - menu[button - 1].price));
 
+        System.out.println("Выберите напиток");
+        int button = scan.nextInt();
+
+        while (button != 1 && button != 2 && button != 3 && button != 4){
+            System.out.println("Вы ввели несуществующий напиток");
+            button = scan.nextInt();
         }
+
+        if (sum == 0)
+            System.out.println("Вы не внесли денежные средства, внесите оплату");
+
+
+        while (sum < menu[button - 1].getPrice()) {
+            if (sum != 0)
+                System.out.println("Недостаточно средств, внесите еще");
+            pay = scan.nextInt();
+            sum = sum + pay;
+        }
+
+        System.out.println("Ваш напиток готов");
+
+        if (sum >= menu[button - 1].getPrice()){
+            System.out.println("Ваша сдача составляет - " + (sum - menu[button - 1].getPrice()));
+        }
+
     }
+}
 
 
 

@@ -19,9 +19,6 @@ public class VendingMachine {
 
     @Override
     public String toString() {
-        return "VendingMachine{" +
-                "drink=" + drink +
-                ", price=" + price +
-                '}';
+        return drink.getTitle() + " " + price;
     }
 }
