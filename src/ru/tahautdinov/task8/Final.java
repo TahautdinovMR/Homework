@@ -1,5 +1,7 @@
 package ru.tahautdinov.task8;
 
+import com.sun.xml.internal.ws.encoding.StringDataContentHandler;
+
 public final class Final { //ненаследуемый класс
     public static final int NOMBER = 142857;
     public static void main(String[] args) {

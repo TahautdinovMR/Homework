@@ -16,5 +16,6 @@ public class Cat extends Animal implements Run {
     public void run() {
         System.out.println("я могу бегать");
 
+
     }
 }
