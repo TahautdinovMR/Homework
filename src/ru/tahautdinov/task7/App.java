@@ -1,9 +1,18 @@
 package ru.tahautdinov.task7;
 
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
+
 public class App {
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
+
     public static void main(String[] args) {
+
         VendingMachine menu[] = new VendingMachine[4];
         menu[0] = new VendingMachine(Drink.WATER, 20);
         menu[1] = new VendingMachine(Drink.TEA, 30);
@@ -26,10 +35,14 @@ public class App {
         while (button != 1 && button != 2 && button != 3 && button != 4){
             System.out.println("Вы ввели несуществующий напиток");
             button = scan.nextInt();
+            logger.info("выбран несуществующий напиток");
         }
 
-        if (sum == 0)
+        if (sum == 0) {
             System.out.println("Вы не внесли денежные средства, внесите оплату");
+            logger.info("отсутствуют денежные средства, напиток выбран");
+        }
+
 
 
         while (sum < menu[button - 1].getPrice()) {
@@ -37,9 +50,11 @@ public class App {
                 System.out.println("Недостаточно средств, внесите еще");
             pay = scan.nextInt();
             sum = sum + pay;
+            logger.info("недостаточно средств");
         }
 
         System.out.println("Ваш напиток готов");
+        logger.info("напиток готов");
 
         if (sum >= menu[button - 1].getPrice()){
             System.out.println("Ваша сдача составляет - " + (sum - menu[button - 1].getPrice()));
