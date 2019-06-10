@@ -8,38 +8,26 @@ import java.util.Scanner;
 
 public class ShopTable {
     public static void main(String[] args) {
+
+        float sum = 0;
+
         try (FileReader fr = new FileReader("product.txt");
              Scanner scanner = new Scanner(fr)) {
             scanner.useLocale(Locale.ENGLISH);
 
+            System.out.printf("Наименование        Цена   Кол-во    Стоимость\n");
+            System.out.printf("===============================================\n");
 
 
-            float d = 0;
+
             while (scanner.hasNext()) {
 
-                if (scanner.hasNextInt()) {
-                    int a = scanner.nextInt();
-                    //System.out.printf("%10s", a);
-                    d = a;
-
-                } else if (scanner.hasNextFloat()) {
-                    float b = scanner.nextFloat();
-                    //System.out.printf("%10s", b);
-                    d = b;
-                } else {
-                    System.out.println();
-                    String c = scanner.nextLine();
-                    //System.out.printf("%-10s", c);
-                    System.out.println(c);
-                }
-                if (d!=0){
-                    d = d * d;
-
-
-
-                }
-                System.out.println(d);
-                d = 0;
+                String name = scanner.nextLine();
+                Float count = Float.parseFloat(scanner.nextLine());
+                Float amount = Float.parseFloat(scanner.nextLine());
+                Float cost = count * amount;
+                sum = cost + sum;
+                System.out.printf("%-15s %8.2f x%8.3f =%11.2f\n" , name, amount, count, cost);
             }
 
         } catch (FileNotFoundException e) {
@@ -47,5 +35,7 @@ public class ShopTable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.printf("===============================================\n");
+        System.out.printf("Итого: %40.2f", sum);
     }
 }
