@@ -9,8 +9,8 @@ public class ShopBasket implements Basket1{
     public List<Integer> quant = null;
 
     public ShopBasket() {
-        List<String> prod = new ArrayList<>();
-        List<Integer> quant = new ArrayList<>();
+        prod = new ArrayList<>();
+        quant = new ArrayList<>();
     }
 
 
@@ -57,5 +57,6 @@ public class ShopBasket implements Basket1{
         return quant.get(a);
 
     }
+
 }
 
