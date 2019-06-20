@@ -1,5 +1,8 @@
 package ru.tahautdinov.task20;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Dogs {
     private String status;
 
