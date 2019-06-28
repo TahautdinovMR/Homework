@@ -7,8 +7,8 @@ public class App {
         shopBasket.addProduct("Milk", 1);
         shopBasket.addProduct("Milky", 2);
         shopBasket.addProduct("Bread", 3);
-        System.out.println(shopBasket.prod);
-        System.out.println(shopBasket.quant);
+        //System.out.println(shopBasket.prod);
+        //System.out.println(shopBasket.quant);
 
     }
 }

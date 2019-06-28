@@ -1,62 +1,89 @@
 package ru.tahautdinov.task23;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class ShopBasket implements Basket1{
+public class ShopBasket implements Basket1 {
 
-    public List<String> prod = null;
-    public List<Integer> quant = null;
+    //public List<String> prod = null;
+    //public List<Integer> quant = null;
+    public List<Product> product = null;
 
     public ShopBasket() {
-        prod = new ArrayList<>();
-        quant = new ArrayList<>();
+        product = new ArrayList<>();
+
+
     }
 
 
-
     public void addProduct(String product, int quantity) {
-        prod.add(product);
-        quant.add(quantity);
+        Product prod = new Product(product, quantity);
+        this.product.add(prod);
+
 
     }
 
 
     public void removeProduct(String product) {
 
-        int a = prod.indexOf(product);
-        prod.remove(product);
-        quant.remove(a);
+        Iterator<Product> iterator = this.product.iterator();
+
+        while (iterator.hasNext()) {
+            Product a = iterator.next();
+            if (a.getProd().equals(product)) {
+                iterator.remove();
+            }
+
+        }
 
 
     }
 
 
     public void updateProductQuantity(String product, int quantity) {
-        int a = prod.indexOf(product);
-        quant.remove(a);
-        quant.add(a, quantity);
+        Iterator<Product> iterator = this.product.iterator();
 
+        while (iterator.hasNext()) {
+            Product a = iterator.next();
+            if (a.getProd().equals(product)) {
+                a.setQuant(quantity);
+            }
+
+
+        }
     }
 
 
     public void clear() {
-        prod.removeAll(prod);
-        quant.removeAll(quant);
+        product.clear();
+
 
     }
 
-    public List<String> getProducts(){
+    public List<String> getProducts() {
 
-        return prod;
+        List<String> pr = new ArrayList<>();
+        for (Product a: product
+             ) {String b = a.getProd();
+             pr.add(b);
+
+        }
+
+        return pr;
 
     }
 
     public int getProductQuantity(String product) {
-        int a = prod.indexOf(product);
-        return quant.get(a);
+        Iterator<Product> iterator = this.product.iterator();
 
-    }
+        while (iterator.hasNext()) {
+            Product a = iterator.next();
+            if (a.getProd().equals(product)) {
+                return a.getQuant();
+            }
+        }
+        return 0;
 
-}
+}}
 
